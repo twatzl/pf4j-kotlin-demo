@@ -8,7 +8,7 @@ import org.pf4j.kotlindemo.api.Greeting
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-class WelcomePlugin(wrapper: PluginWrapper) : Plugin(wrapper) {
+class WelcomePlugin : Plugin() {
     override fun start() {
         logger.info("WelcomePlugin.start()")
         logger.info(StringUtils.upperCase("WelcomePlugin"))
