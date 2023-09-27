@@ -1,27 +1,15 @@
-val pluginsDir by extra { file("$buildDir/plugins") }
-
-buildscript {
-    repositories {
-        mavenCentral()
-        jcenter()
-    }
-
-    dependencies {
-        classpath(kotlin("gradle-plugin", version = "1.4.21"))
-    }
-}
+val pluginsDir by extra { file("${layout.buildDirectory.get()}/plugins") }
 
 plugins {
-    kotlin("jvm") version "1.4.21"
+    alias(libs.plugins.org.jetbrains.kotlin.jvm)
 }
 
 allprojects {
     repositories {
         mavenCentral()
-        jcenter()
     }
 }
 
 tasks.named("build") {
-    dependsOn(":app:uberJar")
+    dependsOn(":app:shadowJar")
 }
